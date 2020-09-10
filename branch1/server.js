@@ -49,13 +49,14 @@ router.get('/nuovo', function(req, res){
   
 });
 router.post('/newNota', function(req, res){
-  var body;
+  var body="";
   req.on('data', chunk => {
     body += chunk.toString(); // convert Buffer to string
   });
   req.on('end', () => {
     //console.log("body  "+body);
     var json = parse(body)
+    console.log("json: "+JSON.stringify(json))
     titolo = json.titolo;
     descrizione = json.descrizione;
     console.log("json  "+titolo + " + "+descrizione)
@@ -67,7 +68,15 @@ router.post('/newNota', function(req, res){
 function addNewNota(titolo, descrizione, res){
   if(titolo === null || titolo === "")
     res.end("bisogna inserire il titolo");
-  res.redirect('/lista');
+  db.collection('note').insertOne({
+      titolo: titolo,
+      idUser: currentUser.id,
+      note: descrizione,
+      checked: false
+    }).then(function(){
+      res.redirect('/lista');
+    });
+  
   
 }
 
