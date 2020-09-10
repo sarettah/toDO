@@ -1,4 +1,4 @@
-console.log('login.js code running');
+
 const button = document.getElementById('registrati');
 button.addEventListener('click', function(e) {
   console.log('button registrati was clicked');

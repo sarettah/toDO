@@ -1,0 +1,23 @@
+<script src="/javascripts/nav.js"></script>
+<h3>Le tue note</h3>
+
+<script>
+   function check(id, ischecked){
+     
+      console.log("ho cliccato la checkbox con id: "+id+ " "+ischecked);
+      fetch('/check', {method: 'POST', body: JSON.stringify({id: id, ischecked: ischecked})  })
+      .then(function(response) {
+         if(response.ok) {
+         console.log('Click id: '+id);
+
+         //dopo che è stato modificato il checkbox mi ritorna qui e faccio un'altra chiamata per riaggiornare la pagina e i dati
+         fetch('/lista', {method: 'GET'})
+         return  ;
+         }
+         throw new Error('Request failed.');
+      })
+      .catch(function(error) {
+         console.log(error);
+      });
+   }
+</script>
