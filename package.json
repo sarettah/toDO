@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/sarettah/toDO/issues"
   },
-  "homepage": "https://github.com/sarettah/toDO#readme"
+  "homepage": "https://github.com/sarettah/toDO#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.1",
+    "querystring": "^0.2.0",
+    "router": "^1.3.5"
+  }
 }
