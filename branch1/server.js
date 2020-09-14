@@ -8,6 +8,9 @@ const router = express.Router();
 const path = require('path');
 const {ObjectId} = require('mongodb'); 
 
+//import js
+const functions = require('./public/javascripts/functions');
+
 //variabili e costanti
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -179,9 +182,9 @@ function modifyNoteCheck(idNota,ischecked, res){
      email = json.email;
      password = json.password;
      console.log("json  "+email + " + "+password)
-     findUser(email, password, res);
+     functions.findUser(email, password,db, res);
     });  
- });
+ });/*
  async function findUser( email, password, res) {
    if(email !==null && email !== "" && password !==null && password !== ""){
          console.log("campi validi")
@@ -208,7 +211,7 @@ function modifyNoteCheck(idNota,ischecked, res){
                     res.write(data);
                     res.end();
                    });*/
-                  res.sendFile(path.join(__dirname+'/public/home.html'));
+                  /*res.sendFile(path.join(__dirname+'/public/home.html'));
                             
                }
               
@@ -222,7 +225,7 @@ function modifyNoteCheck(idNota,ischecked, res){
       res.send("email o password vuoti")
    }
 }
-
+*/
 
 
 
@@ -254,11 +257,11 @@ router.get('/registrati', (req, res) => {
      console.log("json  "+nome+" + "+email + " + "+password);
      //res.end('ok');
     
-     addNewUser(nome, email, password, res);
+     functions.addNewUser(nome, email, password, db, res);
    });
   
  });
- async function addNewUser(nome, email, password, res) {
+ /*async function addNewUser(nome, email, password, res) {
    if(nome !==null && nome !== "" && email !==null && email !== "" && password !==null && password !== ""){
          console.log("campi validi")
          try {          
@@ -284,7 +287,7 @@ router.get('/registrati', (req, res) => {
    }else{
       res.send("uno o più campi vuoti vuoti")
    }
-}
+}*/
 
 
 

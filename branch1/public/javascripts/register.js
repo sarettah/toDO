@@ -10,3 +10,9 @@ fetch('/registrati', {method: 'GET'})
     .catch(function(error) {
       console.log(error);
     });
+////////////////////////////////////////////////////////
+
+
+
+
+
