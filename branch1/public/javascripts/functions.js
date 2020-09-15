@@ -88,8 +88,8 @@ function findListaNote(db, res){
              '<br> Titolo:      '+result[i].titolo+
              '<br> descrizione: '+result[i].note+
              '<br> fatto:'+check+
-             '<br>'+
-             '<button><a href="modifica?id='+result[i]._id.toString()+'&titolo='+result[i].titolo+'&descrizione='+result[i].note+'" >modifica</a></button>'+
+             '<br><button><a href="modifica?id='+result[i]._id.toString()+'&titolo='+result[i].titolo+'&descrizione='+result[i].note+'" >modifica</a></button>'+
+             '<button><a href="elimina?id='+result[i]._id.toString()+'" >elimina</a></button>'+
              '</p>');
            }
            res.end();

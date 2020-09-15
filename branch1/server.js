@@ -91,7 +91,13 @@ router.post('/updateNota', function(req, res){
  
 });
 
-
+router.get('/elimina', function(req, res){
+  var id = req.query.id;
+  db.collection('note').deleteOne({ _id: ObjectId(id.trim()) })
+  .then(function(){
+    res.redirect('/lista');
+  });
+});
 ///////////////////////////////////////////////////////////////nuova nota//////////////////////////////////////////////////
 router.get('/nuovo', function(req, res){
   res.sendFile(path.join(__dirname+'/public/nuovo.html'));
